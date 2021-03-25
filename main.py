@@ -24,6 +24,11 @@ def run(ins):
     # Goto Functionality
     if ins[0] == "!":
         instruction = int(ins[1:])
+    
+    # Reading memory
+    if ins[0] == "*":
+
+    # Moving pointer using constant
     # Ending
     print(f"{instruction}: {ins} {pointer}")
 
@@ -35,3 +40,4 @@ instruction = 0
 mem = {}
 while instruction < len(list):
     run(list[instruction])
+    print(mem)
