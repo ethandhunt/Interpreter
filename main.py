@@ -20,15 +20,27 @@ def run(ins):
     if ins[0] == "-":
         for thing in ins[1:].split("-"):
             pointer -= 1
+    try:
+        errorQuery = mem[pointer]
+    except:
+        mem[pointer] = 0
 
     # Goto Functionality
     if ins[0] == "!":
         instruction = int(ins[1:])
     
-    # Reading memory
+    # Reading memory into RAA
     if ins[0] == "*":
+        RAA[ins[1:]] = mem[pointer]
 
     # Moving pointer using constant
+    if ins[0] == "@":
+        pointer = int(ins[1:])
+    
+    # Changing memory values with integer constants
+    if ins[0] == "$":
+        mem[pointer] = int(ins[1:])
+
     # Ending
     print(f"{instruction}: {ins} {pointer}")
 
@@ -38,6 +50,7 @@ list = Tokenise(string)
 pointer = 0
 instruction = 0
 mem = {}
+RAA = {}
 while instruction < len(list):
     run(list[instruction])
     print(mem)
