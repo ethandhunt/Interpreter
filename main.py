@@ -12,17 +12,19 @@ def run(ins):
     if ins == "":
         print(f"{instruction}: {ins} {pointer}")
         return
-    
-    # pointer shifting
+
+    # Pointer shifting
     if ins[0] == "+":
         for thing in ins[1:].split("+"):
             pointer += 1
     if ins[0] == "-":
         for thing in ins[1:].split("-"):
             pointer -= 1
-    
 
-    #Ending
+    # Goto Functionality
+    if ins[0] == "!":
+        instruction = int(ins[1:])
+    # Ending
     print(f"{instruction}: {ins} {pointer}")
 
 
