@@ -8,11 +8,12 @@ def run(ins):
     pointer = pointer
     instruction = instruction
     ins + ""
+    instruction += 1
     if ins == "":
         print(f"{instruction}: {ins} {pointer}")
-        instruction += 1
         return
-    # memory index altering
+    
+    # pointer shifting
     if ins[0] == "+":
         for thing in ins[1:].split("+"):
             pointer += 1
@@ -22,7 +23,6 @@ def run(ins):
     
 
     #Ending
-    instruction += 1
     print(f"{instruction}: {ins} {pointer}")
 
 
@@ -30,5 +30,6 @@ string = input("Enter Code: ")
 list = Tokenise(string)
 pointer = 0
 instruction = 0
+mem = {}
 while instruction < len(list):
     run(list[instruction])
