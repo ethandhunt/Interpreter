@@ -4,11 +4,19 @@ def Tokenise(string):
     return string.split(">")
 
 
+def RAAval(string):
+    if string[1] == "R":
+        return RAAval(string[1:])
+    return RAA[string[1:]]
+
+
 def value(string):
     if string[0] == "R":
         return RAAval(string)
     elif string[0] == "M":
         return mem[value(string[1:])]
+    elif string[0] == "P":
+        return points[string[1:]]
     try:
         return int(string)
     except:
@@ -59,18 +67,12 @@ def prnt(thing):
     if do_print:
         print(thing)
 
-
-def RAAval(string):
-    if string[1] == "R":
-        return RAAval(string[1:])
-    return RAA[string[1:]]
-
 def run(ins):
     global pointer
     global instruction
 
     # Weird errors
-    pointer  = pointer
+    pointer = pointer
     instruction = instruction
     
     instruction += 1
@@ -79,7 +81,7 @@ def run(ins):
         return
 
     # Pointer shifting
-    # Use: ...>++>++++>+>++++++++++...
+    # Use: ...>++>---->+>++++++++++...
     if ins[0] == "+":
         for thing in ins[1:].split("+"):
             pointer += 1
@@ -95,6 +97,11 @@ def run(ins):
             except:
                 mem[pointer] = 0
     
+    # Points
+    # Use: ...>Pthing>P_other thing>P_moreThings>!thing>!_other thing>...
+    if ins[0] == "P":
+        points[ins[1:]] = instruction
+    
 
     # Goto Functionality
     # Use: ...>!0>!45>!Rvalue>...
@@ -106,7 +113,7 @@ def run(ins):
     if ins[0] == "*":
         RAA[value(ins[1:])] = mem[pointer]
 
-    # Moving pointer using integer constants and RAA
+    # Set the pointer using integer constants and RAA
     # Use: ...>@2>@0>@Rvalue
     if ins[0] == "@":
         pointer = int(value(ins[1:]))
@@ -157,6 +164,7 @@ pointer = 0
 instruction = 0
 mem = {0: 0}
 RAA = {}
+points = {}
 while instruction < len(list):
     run(list[instruction])
     prnt(f"mem:{mem}")
