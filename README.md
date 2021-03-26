@@ -3,16 +3,17 @@ BrainF*** like interpreter
 
 Commands:
 - \> Seperates commands
-- \+ increments pointer position
-- \- decrements pointer position
-- ! jumps to another point in the program string using RAA or an integer
-- \* adds a value to the RAA that can be refrenced later by it's name
+- \+ Increments pointer position
+- \- Decrements pointer position
+- ! Jumps to another point in the program string using RAA or an integer
+- \* Adds a value to the RAA that can be refrenced later by it's name
 - @ Set the pointer using integers or RAA values
 - $ Sets the memory under the pointer using integers or RAA values
 - \# Delays the program by integer or RAA value milliseconds
 - ?op:arg1:arg2 Conditional jump, jumps to arg2 if the memory under the pointer and arg1 evalute true under the op, operations are: = - Equivalent, Gt - >(Greater than), Lt - /<(Less than), Dv - Divisible
 - . Prints the memory currently under the pointer
 - %OperatorValue:Address Performs the operator to Address from Value
+- P Creates a refferable point equivalent to the instruction address
 
 Basic Scripts:
 - i1>.>?10:4>!0 Counts to ten
