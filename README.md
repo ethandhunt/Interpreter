@@ -20,6 +20,7 @@ Basic Scripts:
 - ```$5>+>$2>*_add>%+M0:R_add>+>$R_add>.``` Adds two values, in this case 5 and 2: set by $5>+>$2> _add being a RAA value
 - ```$10>+>$2>%*M0:M1>.``` Multiplies two values, in this case 10 and 2: set by $10>+>$2>
 - ```+>.>$1>.>+>$M1>%+M0:M2>.>-->$M1>+>$M2>@2>!6``` Prints the Fibbonacci sequence
+- ```P_start>+>.pointer>#100>!P_start``` Counts up to infinity incremented every 0.1 second (Accuracy not confirmed)
 
 Expression Evaluation:
 - ```...>*_name>...``` Refferable by R_name ```...>@R_name>...```
