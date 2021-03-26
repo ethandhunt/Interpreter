@@ -28,19 +28,31 @@ def Arithmetic(operand, values):
 
     # Subtract
     elif operand == "-":
-        pass
+        if values[1][0] == "R":
+            RAA[values[1][1:]] -= value(values[0])
+        elif values[1][0] == "M":
+            mem[int(values[1][1:])] -= value(values[0])
 
     # Multiply
     elif operand == "*":
-        pass
+        if values[1][0] == "R":
+            RAA[values[1][1:]] *= value(values[0])
+        elif values[1][0] == "M":
+            mem[int(values[1][1:])] *= value(values[0])
 
     # Divide
     elif operand == "/":
-        pass
+        if values[1][0] == "R":
+            RAA[values[1][1:]] /= value(values[0])
+        elif values[1][0] == "M":
+            mem[int(values[1][1:])] /= value(values[0])
 
     # Modulo
     elif operand == "%":
-        pass
+        if values[1][0] == "R":
+            RAA[int(values[1][1:])] = RAA[values[1][1:]] % value(values[0])
+        elif values[1][0] == "M":
+            mem[int(values[1][1:])] = mem[int(values[1][1:])] % value(values[0])
 
 
 def prnt(thing):
