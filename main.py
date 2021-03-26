@@ -69,22 +69,22 @@ def condition(array):
     global instruction
     operator = array[0]
     item = value(array[1])
-    jump = value(array[2])
+    instruct = value(array[2])
     thing = mem[pointer]
     if len(array) > 3:
         print(f"Conditional Error @{instruction}: More than three arguments: {array}")
     elif operator == "=":
         if item == thing:
-            instruction = jump
+            run(instruct)
     elif operator == "Gt":
         if item < thing:
-            instruction = jump
+            run(instruct)
     elif operator == "Lt":
         if item > thing:
-            instruction = jump
+            run(instruct)
     elif operator == "Dv":
         if int(thing / item) == thing / item:
-            instruction = jump
+            run(instruct)
 
 
 def prnt(thing):

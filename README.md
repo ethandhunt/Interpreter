@@ -10,7 +10,7 @@ Commands:
 - ```@``` Set the pointer using integers or RAA values
 - ```$``` Sets the memory under the pointer using integers or RAA values
 - ```#``` Delays the program by integer or RAA value milliseconds
-- ```?op:arg1:arg2``` Conditional jump, jumps to ```arg2``` if the memory under the pointer and ```arg1``` evalute true under the op, operations are: ```=``` - Equivalent, ```Gt``` - >(Greater than), ```Lt``` - /<(Less than), ```Dv``` - Divisible
+- ```?op:arg1:arg2``` Conditional jump, runs ```arg2``` as an instruction if the memory under the pointer and ```arg1``` evalute true under the op, operations are: ```=``` - Equivalent, ```Gt``` - >(Greater than), ```Lt``` - /<(Less than), ```Dv``` - Divisible
 - ```.arg1``` Prints the memory currently under the pointer unless arg1 is a value
 - ```%OperatorValue:Address``` Performs the operator to Address from Value
 - ```P``` Creates a refferable point equivalent to the instruction address
