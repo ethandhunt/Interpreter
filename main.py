@@ -63,6 +63,28 @@ def Arithmetic(operand, values):
             mem[int(values[1][1:])] = mem[int(values[1][1:])] % value(values[0])
 
 
+def condition(array):
+    global instruction
+    operator = array[0]
+    item = value(array[1])
+    jump = value(array[2])
+    thing = mem[pointer]
+    if len(array) > 3:
+        print(f"Conditional Error @{instruction}: More than three arguments: {values}")
+    elif operator == "=":
+        if item == thing:
+            instruction = jump
+    elif operator == "Gt":
+        if item < thing:
+            instruction = jump
+    elif operator == "Lt":
+        if item > thing:
+            instruction = jump
+    elif operator == "Dv":
+        if int(thing / item) == thing / item:
+            instruction = jump
+
+
 def prnt(thing):
     if do_print:
         print(thing)
@@ -140,8 +162,7 @@ def run(ins):
     # Conditional Jumps
     # Use: ...>?5:14>?Rvalue1:Rvalue2>...
     if ins[0] == "?":
-        if mem[pointer] == value(ins[1:].split(':')[0]):
-            instruction = value(ins[1:].split(':')[1])
+        condition(ins[1:].split(:))
     
     # Print
     # Use: ...>.>...

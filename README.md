@@ -10,7 +10,7 @@ Commands:
 - @ Set the pointer using integers or RAA values
 - $ Sets the memory under the pointer using integers or RAA values
 - \# Delays the program by integer or RAA value milliseconds
-- ?arg1:arg2 Conditional jump, jumps to arg2 if the memory under the pointer is equivalent to arg1
+- ?op:arg1:arg2 Conditional jump, jumps to arg2 if the memory under the pointer and arg1 evalute true under the op, operations are: = - Equivalent, Gt - >(Greater than), Lt - /<(Less than), Dv - Divisible
 - . Prints the memory currently under the pointer
 - %OperatorValue:Address Performs the operator to Address from Value
 
