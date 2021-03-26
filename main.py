@@ -17,6 +17,8 @@ def value(string):
         return mem[value(string[1:])]
     elif string[0] == "P":
         return points[string[1:]]
+    elif string == "pointer":
+        return pointer
     try:
         return int(string)
     except:
@@ -162,7 +164,7 @@ def run(ins):
     # Conditional Jumps
     # Use: ...>?5:14>?Rvalue1:Rvalue2>...
     if ins[0] == "?":
-        condition(ins[1:].split(:))
+        condition(ins[1:].split(":"))
     
     # Print
     # Use: ...>.>...
