@@ -158,9 +158,13 @@ def run(ins):
         time.sleep(value(ins[1:]) / 1000)
     
     # Conditional Jumps
-    # Use: ...>?5:14>?Rvalue1:Rvalue2>...
+    # Use: ...>?=:5:14>?Gt:Rvalue1:Rvalue2>...
     if ins[0] == "?":
         condition(ins[1:].split(":"))
+        try:
+            errorQuery = mem[pointer]
+        except:
+            mem[pointer] = 0
     
     # Print
     # Use: ...>.>...
