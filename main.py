@@ -154,7 +154,7 @@ def run(ins):
     # Incrementing memory values with integer constants and RAA
     # Use: ...>i1>iRvalue>i12>...
     if ins[0] == "i":
-        mem[pointer] += int(value(ins[1:]))
+        mem[pointer] += value(ins[1:])
     
     # Adding delays in milliseconds(w/ RAA)
     # Use: ...>#100>#142>#Rvalue>...
