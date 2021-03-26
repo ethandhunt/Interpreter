@@ -168,6 +168,8 @@ def run(ins):
     # Use: ...>.>...
     if ins == ".":
         print(mem[pointer])
+    elif ins[0] == ".":
+        print(value(ins[1:]))
     
     # Basic Arithmetic
     # Use: ..>%+15:value>%-value1:value2>%+M2:Rbob...
