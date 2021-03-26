@@ -72,7 +72,7 @@ def condition(array):
     jump = value(array[2])
     thing = mem[pointer]
     if len(array) > 3:
-        print(f"Conditional Error @{instruction}: More than three arguments: {values}")
+        print(f"Conditional Error @{instruction}: More than three arguments: {array}")
     elif operator == "=":
         if item == thing:
             instruction = jump
