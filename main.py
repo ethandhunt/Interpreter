@@ -94,10 +94,6 @@ def prnt(thing):
 def run(ins):
     global pointer
     global instruction
-
-    # Weird errors
-    pointer = pointer
-    instruction = instruction
     
     instruction += 1
     if ins == "":
