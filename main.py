@@ -4,6 +4,45 @@ def Tokenise(string):
     return string.split(">")
 
 
+def value(string):
+    if string[0] == "R":
+        return RAAval(string)
+    elif string[0] == "M":
+        return mem[value(string[1:])]
+    try:
+        return int(string)
+    except:
+        return string
+
+
+def Arithmetic(operand, values):
+    if len(values) > 2:
+        print(f"Arithmetic Error @{instruction}: More than two arguments: {values}")
+
+    # Add
+    if operand == "+":
+        if values[1][0] == "R":
+            RAA[values[1][1:]] += value(values[0])
+        elif values[1][0] == "M":
+            mem[int(values[1][1:])] += value(values[0])
+
+    # Subtract
+    elif operand == "-":
+        pass
+
+    # Multiply
+    elif operand == "*":
+        pass
+
+    # Divide
+    elif operand == "/":
+        pass
+
+    # Modulo
+    elif operand == "%":
+        pass
+
+
 def prnt(thing):
     if do_print:
         print(thing)
@@ -14,21 +53,14 @@ def RAAval(string):
         return RAAval(string[1:])
     return RAA[string[1:]]
 
-
-def value(string):
-    if string[0] == "R":
-        return RAAval(string)
-    try:
-        return int(string)
-    except:
-        return string
-
 def run(ins):
     global pointer
     global instruction
-    pointer = pointer
+
+    # Weird errors
+    pointer  = pointer
     instruction = instruction
-    ins + ""
+    
     instruction += 1
     if ins == "":
         print(f"{instruction}: {ins} {pointer}")
@@ -98,12 +130,9 @@ def run(ins):
         print(mem[pointer])
     
     # Basic Arithmetic
-    # Use: ..>%15:value>%value1:value2>...
+    # Use: ..>%+15:value>%-value1:value2>%+M2:Rbob...
     if ins[0] == "%":
-        if type(value(ins[1:].split(':')[0])) == int:
-            RAA[ins[1:].split(':')[1]] += mem[value(ins[1:].split(':')[0])]
-        else:
-            RAA[ins[1:].split(':')[1]] += value(ins[1:].split(':')[0])
+        Arithmetic(ins[1],ins[2:].split(":"))
 
     # End step
     prnt(f"{instruction}: {ins} {pointer}: {mem[pointer]}")
