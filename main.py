@@ -40,9 +40,12 @@ def value(string):
         return string
 
 
-def Arithmetic(operand, values):
-    if len(values) > 2:
-        print(f"Arithmetic Error @{instruction}: More than two arguments: {values}")
+def Arithmetic(values):
+    if len(values) > 3:
+        print(f"Arithmetic Error @{instruction}: More than three arguments: {values}")
+    
+    operand = values[0]
+    values = [values[1], values[2]]
 
     # Add
     if operand == "+":
@@ -78,6 +81,9 @@ def Arithmetic(operand, values):
             RAA[int(values[1][1:])] = RAA[values[1][1:]] % value(values[0])
         elif values[1][0] == "M":
             mem[int(values[1][1:])] = mem[int(values[1][1:])] % value(values[0])
+    
+    else:
+        print("???")
 
 
 def condition(array):
@@ -111,7 +117,7 @@ def run(ins):
     global instruction
     
     instruction += 1
-    if ins == "":
+    if ins == "Debug":
         print(f"{instruction}: {ins} {pointer}")
         return
 
@@ -191,7 +197,7 @@ def run(ins):
     # Basic Arithmetic
     # Use: ..>%+15:value>%-value1:value2>%+M2:Rbob...
     if ins[0] == "%":
-        Arithmetic(ins[1],ins[2:].split(":"))
+        Arithmetic(ins[1:].split(":"))
 
     # End step
     prnt(f"{instruction}: {ins} {pointer}: {mem[pointer]}")
