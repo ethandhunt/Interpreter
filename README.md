@@ -29,3 +29,4 @@ Expression Evaluation:
 - ```...>P_instructionNumber>...``` Stores instruction number in pointer dictionary when run (Not an actual pointer) ```...>@P_instructionNumber>...```
 - ```...>.pointer>...``` Prints pointer value
 - ```...>.atest>...``` Prints integer value of the string "test" (1952805748)
+- ```...>.5%+|2>...``` Prints 5 + 10 using inline arithmetic, expressed as ```Value%Operator|Value```

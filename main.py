@@ -6,10 +6,12 @@ def Tokenise(string):
 
 
 def intToString(n):
+    # I have no idea how this works
     return binascii.unhexlify(format(n, "x").encode("utf-8")).decode("utf-8")
 
 
 def stringToInt(string):
+    # Or this
     return int(binascii.hexlify(string.encode("utf-8")), 16)
 
 def RAAval(string):
@@ -20,8 +22,8 @@ def RAAval(string):
 
 def value(string):
     if len(string.split("%")) > 1:
-        operator = string.split("%")[1].split(":")[0]
-        values = [string.split("%")[0], string.split("%")[1].split(":")[1]]
+        operator = string.split("%")[1].split("|")[0]
+        values = [string.split("%")[0], string.split("%")[1].split("|")[1]]
         if len(string.split("%")) > 2:
             print(f"InlineArithmetic Error@{instruction}: more than two arguments: {string}")
         elif operator == "+":
