@@ -215,3 +215,5 @@ while instruction < len(list):
     run(list[instruction])
     prnt(f"mem:{mem}")
     prnt(f"RAA:{RAA}")
+
+input()
