@@ -11,7 +11,22 @@ def RAAval(string):
 
 
 def value(string):
-    if string[0] == "R":
+    if len(string.split("%")) > 1:
+        operator = string.split("%")[1].split(":")[0]
+        values = [string.split("%")[0], string.split("%")[1].split(":")[1]]
+        if len(string.split("%")) > 2:
+            print(f"InlineArithmetic Error@{instruction}: more than two arguments: {string}")
+        elif operator == "+":
+            return value(values[0]) + value(values[1])
+        elif operator == "-":
+            return value(values[0]) - value(values[1])
+        elif operator == "*":
+            return value(values[0]) * value(values[1])
+        elif operator == "/":
+            return value(values[0]) / value(values[1])
+        elif operator == "mod":
+            return value(values[0]) % value(values[1])
+    elif string[0] == "R":
         return RAAval(string)
     elif string[0] == "M":
         return mem[value(string[1:])]
@@ -58,7 +73,7 @@ def Arithmetic(operand, values):
             mem[int(values[1][1:])] /= value(values[0])
 
     # Modulo
-    elif operand == "%":
+    elif operand == "mod":
         if values[1][0] == "R":
             RAA[int(values[1][1:])] = RAA[values[1][1:]] % value(values[0])
         elif values[1][0] == "M":
