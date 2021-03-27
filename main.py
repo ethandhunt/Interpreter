@@ -223,6 +223,11 @@ def run(ins):
 
 
 def start():
+    global instruction
+    global mem
+    global RAA
+    global pointer
+    global points
     string = input("Enter Code: ")
     list = Tokenise(string)
     pointer = 0
