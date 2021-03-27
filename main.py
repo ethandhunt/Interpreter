@@ -1,8 +1,16 @@
 import time
+import binascii
 
 def Tokenise(string):
     return string.split(">")
 
+
+def intToString(n):
+    return binascii.unhexlify(format(n, "x").encode("utf-8")).decode("utf-8")
+
+
+def stringToInt(string):
+    return int(binascii.hexlify(string.encode("utf-8")), 16)
 
 def RAAval(string):
     if string[1] == "R":
@@ -34,6 +42,14 @@ def value(string):
         return points[string[1:]]
     elif string == "pointer":
         return pointer
+    elif string[0] == "a":
+        thing = value(string[1:])
+        if type(thing) == int:
+            return intToString(thing)
+        elif type(thing) == str:
+            return stringToInt(thing)
+        else:
+            print("???")
     try:
         return int(string)
     except:
@@ -78,7 +94,7 @@ def Arithmetic(values):
     # Modulo
     elif operand == "mod":
         if values[1][0] == "R":
-            RAA[int(values[1][1:])] = RAA[values[1][1:]] % value(values[0])
+            RAA[values[1][1:]] = RAA[values[1][1:]] % value(values[0])
         elif values[1][0] == "M":
             mem[int(values[1][1:])] = mem[int(values[1][1:])] % value(values[0])
     
@@ -197,9 +213,10 @@ def run(ins):
         print(value(ins[1:]))
     
     # Basic Arithmetic
-    # Use: ..>%+15:value>%-value1:value2>%+M2:Rbob...
+    # Use: ..>%+:15:value>%-:value1:value2>%+:M2:Rbob...
     if ins[0] == "%":
         Arithmetic(ins[1:].split(":"))
+
 
     # End step
     prnt(f"{instruction}: {ins} {pointer}: {mem[pointer]}")

@@ -27,4 +27,5 @@ Expression Evaluation:
 - ```...>*_name>...``` Refferable by R_name ```...>@R_name>...```
 - ```...>@5>$_someValue>@_someOtherMemoryAddress>%+Mpointer:M5>...``` Reffering to a memory address (Snippet not tested)
 - ```...>P_instructionNumber>...``` Stores instruction number in pointer dictionary when run (Not an actual pointer) ```...>@P_instructionNumber>...```
-- ```...>.pointer>...``` Prints pointer value (Snippet not tested)
+- ```...>.pointer>...``` Prints pointer value
+- ```...>.atest>...``` Prints integer value of the string "test" (1952805748)
