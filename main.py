@@ -222,17 +222,19 @@ def run(ins):
     prnt(f"{instruction}: {ins} {pointer}: {mem[pointer]}")
 
 
-do_print = input("Enable Debug Mode? y/n: ") == "y"
-string = input("Enter Code: ")
-list = Tokenise(string)
-pointer = 0
-instruction = 0
-mem = {0: 0}
-RAA = {}
-points = {}
-while instruction < len(list):
-    run(list[instruction])
-    prnt(f"mem:{mem}")
-    prnt(f"RAA:{RAA}")
+def start():
+    string = input("Enter Code: ")
+    list = Tokenise(string)
+    pointer = 0
+    instruction = 0
+    mem = {0: 0}
+    RAA = {}
+    points = {}
+    while instruction < len(list):
+        run(list[instruction])
+        prnt(f"mem:{mem}")
+        prnt(f"RAA:{RAA}")
 
-input()
+do_print = input("Enable Debug Mode? y/n: ") == "y"
+while True:
+    start()
