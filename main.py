@@ -117,6 +117,8 @@ def run(ins):
     global instruction
     
     instruction += 1
+    if ins == "":
+        return
     if ins == "Debug":
         print(f"{instruction}: {ins} {pointer}")
         return
