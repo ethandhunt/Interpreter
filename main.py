@@ -220,6 +220,8 @@ def run(ins):
 
     # End step
     prnt(f"{instruction}: {ins} {pointer}: {mem[pointer]}")
+    prnt(f"mem:{mem}")
+    prnt(f"RAA:{RAA}")
 
 
 def start():
@@ -237,8 +239,6 @@ def start():
     points = {}
     while instruction < len(list):
         run(list[instruction])
-        prnt(f"mem:{mem}")
-        prnt(f"RAA:{RAA}")
 
 do_print = input("Enable Debug Mode? y/n: ") == "y"
 while True:
