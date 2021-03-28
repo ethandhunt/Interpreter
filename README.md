@@ -22,6 +22,7 @@ Basic Scripts:
 - ```+>.>$1>.>+>$M1>%+:M0:M2>.>-->$M1>+>$M2>@2>!6``` Prints the Fibbonacci sequence
 - ```+>#100>.>$1>#100>.>+>P_calc>$M1>%+:M0:M2>#100>.>-->$M1>+>$M2>@2>!P_calc``` Prints the Fibbonacci sequence with a delay and uses pointers
 - ```P_start>+>.pointer>#100>!P_start``` Counts up to infinity incremented every 0.1 second (Accuracy not confirmed)
+- ```+>.>$1>.>+>P_calc>$M1>%+:M0:M2>.>-->$M1>+>$M2>@2>?Lt:1000:!P_calc``` Lists the fibbonacci sequence up to 1000
 
 Expression Evaluation:
 - ```...>*_name>...``` Refferable by R_name ```...>@R_name>...```
