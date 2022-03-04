@@ -1,6 +1,15 @@
 # Interpreter
 BrainF*** like interpreter
 
+## `!!!` This documentation is incorrect
+Code was changed and documentation was neglected, it has been long enough that I forgot about this and have almost no idea on how it works
+
+Some examples do not run, and I neglected to add error messages
+
+Some parts of the interpreter also appear to fail
+
+I have abandoned this project and will not be working on it
+
 Commands:
 - ```>``` Seperates commands
 - ```+``` Increments pointer position
